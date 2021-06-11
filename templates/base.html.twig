@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang=" {{app.request.locale}} ">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <title>{% block title %}Hello city{% endblock %}</title>
+        {# Run `composer require symfony/webpack-encore-bundle`
+           and uncomment the following Encore helpers to start using Symfony UX #}
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+
+        {% block stylesheets %}
+            {#{{ encore_entry_link_tags('app') }}#}
+        {% endblock %}
+
+        {% block javascripts %}
+            {#{{ encore_entry_script_tags('app') }}#}
+        {% endblock %}
+    </head>
+    <body class= " flex flex-col justify-between items-center min-h-screen" >
+        <main role = "main" class="my-6 flex flex-col items-center justify-center">
+            {% block body %}{% endblock %}
+        </main>
+       
+        <footer class='my-6'>
+            <p class='text-gray-400'>
+                &copy; Copyright {{'now'|date('Y', 'Europe/Paris')}}
+                &middot; <a 
+                            href=" {{path('app_about')}} " 
+                            class="text-indigo-500 hover:text-indigo-600 underline">About Us
+                        </a>
+            </p>
+        </footer>
+    </body>
+</html>
